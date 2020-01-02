@@ -46,7 +46,10 @@ export class ProductListComponent implements OnInit {
     return this.displayColumns.map(i => i.name);
   }
 
-  // showDetail() {
-  //   this.router.navigate([`/products/${this.id}`]);
-  // }
+  /**
+   * table row click event handler.
+   */
+  clickRow(e: any) {
+    this.router.navigate([`/products/`, e.id]);
+  }
 }

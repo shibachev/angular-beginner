@@ -29,6 +29,10 @@ export class ProductService {
 
   constructor() { }
 
+  get(id: number): Observable<Product> {
+    return of(this.products[id - 1]);
+  }
+
   list(): Observable<Product[]> {
     return of(this.products);
   }
