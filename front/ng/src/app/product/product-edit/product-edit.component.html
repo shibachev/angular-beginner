@@ -1,0 +1,29 @@
+<p>product-edit works!</p>
+<div class="container">
+  <div class="title">商品編集</div>
+  <form class="edit-form">
+    <mat-divider></mat-divider>
+    <div class="edit-label">
+      <label>ID</label>
+      <span>{{ product.id }}</span>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="edit-text">
+      <label>名前</label>
+      <input type="text" name="name" [(ngModel)]="product.name">
+    </div>
+    <mat-divider></mat-divider>
+    <div class="edit-text">
+      <label>価格</label>
+      <input type="number" name="price" [(ngModel)]="product.price">
+    </div>
+    <mat-divider></mat-divider>
+    <div class="edit-text">
+      <label>説明</label>
+      <input type="text" name="description" [(ngModel)]="product.description">
+    </div>
+  </form>
+  <div class="footer">
+    <button (click)="save()">保存</button>
+  </div>
+</div>
