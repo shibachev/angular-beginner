@@ -36,4 +36,9 @@ export class ProductService {
   list(): Observable<Product[]> {
     return of(this.products);
   }
+
+  update(product: Product): void {
+    const idx = this.products.findIndex((p: Product) => p.id === product.id);
+    this.products[idx] = product;
+  }
 }
