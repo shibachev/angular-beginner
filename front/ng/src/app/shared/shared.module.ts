@@ -2,6 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [],
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
   providers: [],
   exports: [
     CommonModule,
+    FormsModule,
     MatDividerModule,
     MatTableModule,
   ],

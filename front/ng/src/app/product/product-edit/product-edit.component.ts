@@ -1,14 +1,14 @@
 import { ProductService } from './../../shared/services/product.service';
+import { Product } from './../../shared/models/product';
 import { Component, OnInit } from '@angular/core';
-import { Product } from 'src/app/shared/models/product';
-import { Router, ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
-  selector: 'app-product-detail',
-  templateUrl: './product-detail.component.html',
-  styleUrls: ['./product-detail.component.scss']
+  selector: 'app-product-edit',
+  templateUrl: './product-edit.component.html',
+  styleUrls: ['./product-edit.component.scss']
 })
-export class ProductDetailComponent implements OnInit {
+export class ProductEditComponent implements OnInit {
   id: number;
   product: Product;
 
@@ -27,16 +27,12 @@ export class ProductDetailComponent implements OnInit {
   }
 
   /**
-   * backToList button click event handler.
+   * save saves data.
    */
-  backToList() {
+  save() {
+    // TODO: save data.
+
     this.router.navigate([`/products`]);
   }
 
-  /**
-   * edit button click event handler.
-   */
-  edit() {
-    this.router.navigate([`/products/${this.id}/edit`]);
-  }
 }
