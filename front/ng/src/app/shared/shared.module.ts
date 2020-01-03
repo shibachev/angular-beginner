@@ -1,4 +1,5 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 import { CommonModule } from '@angular/common';
@@ -11,6 +12,7 @@ import { FormsModule } from '@angular/forms';
   exports: [
     CommonModule,
     FormsModule,
+    MatButtonModule,
     MatDividerModule,
     MatTableModule,
   ],

@@ -27,12 +27,17 @@ export class ProductEditComponent implements OnInit {
   }
 
   /**
-   * save saves data.
+   * save saves data and navigate to list page.
    */
   save() {
     // TODO: save data.
-
     this.router.navigate([`/products`]);
   }
 
+  /**
+   * cancel navigate to detail page.
+   */
+  cancel() {
+    this.router.navigate([`/products`, this.id]);
+  }
 }
