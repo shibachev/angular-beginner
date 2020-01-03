@@ -10,12 +10,20 @@
     <mat-divider></mat-divider>
     <div class="edit-text">
       <label>名前</label>
-      <input type="text" formControlName="name" required>
+      <input type="text" formControlName="name" required maxlength="50">
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <div *ngIf="name.errors.required">入力してください</div>
+        <div *ngIf="name.errors.maxlength">50文字以内で入力してください</div>
+      </div>
     </div>
     <mat-divider></mat-divider>
     <div class="edit-text">
       <label>価格</label>
-      <input type="number" formControlName="price">
+      <input type="number" formControlName="price" required>
+      <div *ngIf="price.invalid && (price.dirty || price.touched)" class="alert">
+        <div *ngIf="price.errors.required">入力してください</div>
+        <div *ngIf="price.errors.min">100円以上を入力してください</div>
+      </div>
     </div>
     <mat-divider></mat-divider>
     <div class="edit-text">
@@ -25,6 +33,6 @@
   </form>
   <div class="footer">
     <button mat-raised-button (click)="cancel()">キャンセル</button>
-    <button mat-raised-button (click)="save()">保存</button>
+    <button mat-raised-button [disabled]="productForm.invalid" (click)="save()">保存</button>
   </div>
 </div>
