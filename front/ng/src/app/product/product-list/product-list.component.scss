@@ -2,6 +2,10 @@
   cursor: pointer;
 }
 
+.table-row:hover {
+  background-color: gray;
+}
+
 table {
   width: 100%;
 }
