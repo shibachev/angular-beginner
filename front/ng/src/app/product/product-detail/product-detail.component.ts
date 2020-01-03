@@ -30,7 +30,13 @@ export class ProductDetailComponent implements OnInit {
    * backToList button click event handler.
    */
   backToList() {
-    this.router.navigate(['/products']);
+    this.router.navigate([`/products`]);
   }
 
+  /**
+   * edit button click event handler.
+   */
+  edit() {
+    this.router.navigate([`/products/${this.id}/edit`]);
+  }
 }
