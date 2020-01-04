@@ -10,9 +10,8 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./product-edit.component.scss']
 })
 export class ProductEditComponent implements OnInit {
-  id: number;
+  id: string;
   productForm = this.formBuilder.group({
-    id: [''],
     name: [''],
     price: ['', Validators.min(100)],
     description: [''],
@@ -33,7 +32,6 @@ export class ProductEditComponent implements OnInit {
   ngOnInit() {
     this.productService.get(this.id).subscribe((res: Product) => {
       this.productForm.setValue({
-        id: res.id,
         name: res.name,
         price: res.price,
         description: res.description,
@@ -46,12 +44,11 @@ export class ProductEditComponent implements OnInit {
    */
   save() {
     const {
-      id,
       name,
       price,
       description,
     } = this.productForm.getRawValue();
-    this.productService.update(new Product(id, name, price, description));
+    this.productService.update(this.id, new Product(name, price, description));
     this.router.navigate([`/products`, this.id]);
   }
 

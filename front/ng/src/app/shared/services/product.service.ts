@@ -22,8 +22,12 @@ export class ProductService {
     });
   }
 
-  // update(product: Product): void {
-  //   const idx = this.products.findIndex((p: Product) => p.id === product.id);
-  //   this.products[idx] = product;
-  // }
+  update(id: string, product: Product): void {
+    const data = {
+      name: product.name,
+      price: product.price,
+      description: product.description,
+    };
+    this.db.doc<Product>(`products/${id}`).set(data);
+  }
 }

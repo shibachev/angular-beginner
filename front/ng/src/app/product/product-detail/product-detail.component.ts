@@ -11,7 +11,6 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ProductDetailComponent implements OnInit {
   id: string;
   product: Product = {
-    id: '',
     name: '',
     price: 0,
     description: '',
