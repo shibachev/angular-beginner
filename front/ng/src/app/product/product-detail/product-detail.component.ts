@@ -9,8 +9,12 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./product-detail.component.scss']
 })
 export class ProductDetailComponent implements OnInit {
-  id: number;
-  product: Product;
+  id: string;
+  product: Product = {
+    name: '',
+    price: 0,
+    description: '',
+  };
 
   constructor(
     private productService: ProductService,

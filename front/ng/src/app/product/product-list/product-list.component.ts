@@ -34,12 +34,10 @@ export class ProductListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    setTimeout(() => {
-      this.productService.list().subscribe((res: Product[]) => {
-        this.products = res;
-      });
+    this.productService.list().subscribe((res: Product[]) => {
+      this.products = res;
       this.dataSource = new MatTableDataSource(this.products);
-    }, 3000);
+    });
   }
 
   get displayColumnNames(): string[] {
