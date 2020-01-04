@@ -1,6 +1,8 @@
 import { Product } from 'src/app/shared/models/product';
 import { Injectable } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -27,14 +29,22 @@ export class ProductService {
     ),
   ];
 
-  constructor() { }
+  constructor(
+    private db: AngularFirestore,
+  ) { }
 
   get(id: number): Observable<Product> {
     return of(this.products[id - 1]);
   }
 
   list(): Observable<Product[]> {
-    return of(this.products);
+    return this.db.collection<Product>('products', ref => {
+      return ref.orderBy('id');
+    }).valueChanges().pipe(
+      map(ps => ps.map((p: Product) => {
+        return new Product(p.id, p.name, p.price, p.description);
+      }))
+    );
   }
 
   update(product: Product): void {
